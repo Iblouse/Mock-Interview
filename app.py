@@ -74,8 +74,8 @@ if not st.session_state.setup_complete:
 
     st.session_state["company"] = st.selectbox(
         "Select a Company",
-        ("Amazon", "Meta", "Udemy", "365 Company", "Nestle", "LinkedIn", "Spotify"),
-        index=("Amazon", "Meta", "Udemy", "365 Company", "Nestle", "LinkedIn", "Spotify").index(st.session_state["company"])
+        ("Amazon", "Meta", "Google", "Chase", "Microsoft", "LinkedIn", "Spotify"),
+        index=("Amazon", "Meta", "Google", "Chase", "Microsoft", "LinkedIn", "Spotify").index(st.session_state["company"])
     )
 
 
