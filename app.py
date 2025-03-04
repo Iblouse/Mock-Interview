@@ -2,6 +2,9 @@ import streamlit as st
 from openai import OpenAI
 from streamlit_js_eval import streamlit_js_eval
 
+# Streamlit page configuration
+st.set_page_config(page_title="Interview Practice App", page_icon="🎤", layout="centered")
+
 # Custom CSS for styling
 st.markdown(
     """
@@ -36,9 +39,6 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
-
-# Streamlit page configuration
-st.set_page_config(page_title="Interview Practice App", page_icon="🎤", layout="centered")
 
 st.markdown("<div class='main-title'>Interview Practice App 🎤</div>", unsafe_allow_html=True)
 
