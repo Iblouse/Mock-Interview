@@ -1,7 +1,5 @@
 <img src="https://github.com/Iblouse/Mock-Interview/blob/main/Interviewapp.png" width="550"/>
 
-# Mock-Interview
-
 ## Table of Contents
 - [Project Overview](#project-overview)
 - [Features](#features)
