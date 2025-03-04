@@ -140,12 +140,23 @@ if st.session_state.feedback_shown:
     conversation_history = "\n".join([f"{msg['role']}: {msg['content']}" for msg in st.session_state.messages])
 
     feedback_client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
+    
+    # Generate the feedback
     feedback_completion = feedback_client.chat.completions.create(
         model="gpt-4o",
-        messages=[{"role": "system", "content": "Evaluate the interview and provide feedback."},
-                  {"role": "user", "content": conversation_history}]
+        messages=[
+            {"role": "system", "content": """You are a helpful tool that provides feedback on an interviewee performance.
+             Before the Feedback give a score of 1 to 10.
+             Follow this format:
+             Overal Score: //Your score
+             Feedback: //Here you put your feedback
+             Give only the feedback do not ask any additional questins.
+              """},
+            {"role": "user", "content": f"This is the interview you need to evaluate. Keep in mind that you are only a tool. And you shouldn't engage in any converstation: {conversation_history}"}
+        ]
     )
     st.write(feedback_completion.choices[0].message.content)
     
+    # Button to restart
     if st.button("Restart Interview 🔄", type="primary"):
         streamlit_js_eval(js_expressions="parent.window.location.reload()")
